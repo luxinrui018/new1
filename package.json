@@ -1,0 +1,56 @@
+{
+  "name": "calculator",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:serve": "vite --mode electron",
+    "electron:build": "electron-builder"
+  },
+  "main": "./main.js",
+  "author": "Xinrui Lu",
+  "dependencies": {
+    "axios": "^1.5.1",
+    "element-plus": "^2.4.1",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/cli-service": "^5.0.8",
+    "electron": "^34.1.1",
+    "electron-builder": "^25.1.8",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.2",
+    "vite": "^4.4.5",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  },
+  "build": {
+    "appId": "com.luxinrui.calculator",
+    "productName": "Calculator",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "electronDownload": {
+      "mirror": "https://npmmirror.com/mirrors/electron/"
+    },
+
+    "files": [
+      "dist/**/*",
+      "dist-electron/main/main.js",
+      "main.js"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
